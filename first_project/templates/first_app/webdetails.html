@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Topic Details Access</title>
+  </head>
+  <body>
+    <div class="">
+      {% if AccessRecords %}
+      <table border=2>
+        <thead>
+          <th>WebpageName</th>
+          <th>Date Accessed</th>
+          <th>URL</th>
+        </thead>
+
+        {% for acc_rec in AccessRecords %}
+           <tr>
+             <td>{{ acc_rec.webpageName}}</td>
+             <td>{{acc_rec.date}}</td>
+             <td>{{acc_rec.wepages}}</td>
+           </tr>
+
+
+        {% endfor %}
+      </table>
+      {% endif %}
+    </div>
+  </body>
+</html>

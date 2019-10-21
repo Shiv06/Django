@@ -1,0 +1,29 @@
+{% extends 'first_app/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<div class="jumbotron">
+  {% if registered %}
+  <h1>Thank you for registring!</h1>
+
+  {% else %}
+  <h1>Register Here,Fill out below Form</h1>
+  <form  enctype="multipart/form-data"  method="POST">
+    {% csrf_token %}
+    {% for frm in user_form %}
+    <div class="form-group">
+    <label>{{frm.label}}</label>
+    <br>
+     {{frm}}
+     <br>
+    {% endfor %}
+    </div>
+    <!-- {{ user_form.as_p }} -->
+    <!-- {{ profile_form.as_p }} -->
+    <br>
+    <input class="btn btn-primary" type="submit" name="Register" value="Register">
+  </form>
+  {% endif %}
+</div>
+
+
+ {% endblock %}
